@@ -16,5 +16,7 @@ jobs:
               run: npm start & 
             - name: Wait for application to start 
               run: sleep 10 
-            - name: Run OWASP ZAP 
-              run: | docker run -t owasp/zap2docker-stable:2.5.0 zap.sh -cmd -quickstart -quickstart.port 8080 -quickstart.file /zap/wrk/sample_site -quickstart.newsession -quickstart.inherit
+            - name: Run Burp Suite Scan 
+              run: | 
+                # This assumes you have Burp Suite Enterprise Edition set up with API access 
+                curl -X POST -H "Authorization: PMAK-67c54f5da373ae0001104949-6b8ff6a1027638ec3c215dfaaed2063386" "http://localhost:8080/api/scans"
