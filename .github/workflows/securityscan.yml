@@ -15,7 +15,13 @@ jobs:
             - name: Start application 
               run: npm start & 
             - name: Wait for application to start 
-              run: sleep 10 
+              run: sleep 10
+            - name: Start Burp Suite 
+              run: | 
+                # Assuming you have Burp Suite set up in your CI/CD environment 
+                burp_suite -start & # Command to start Burp Suite in the background 
+            - name: Wait for Burp Suite to start 
+              run: sleep 10 # Wait for Burp Suite to be ready  
             - name: Run Burp Suite Scan 
               run: | 
                 # This assumes you have Burp Suite Enterprise Edition set up with API access 
